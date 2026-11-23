@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-kunyit: #EAB308;
+  --color-kunyit-dark: #A16207;
+  --color-kunyit-bg: #FEF9C3;
+}
+
+body {
+  background-color: #FAF8F5;
+  color: #2D2319;
+}
+
+.turmeric-gradient {
+  background: linear-gradient(135deg, #FACC15 0%, #EAB308 50%, #D97706 100%);
+}
+
+.banner-gradient {
+  background: linear-gradient(105deg, #FFF9E6 0%, #FEF08A 45%, #F59E0B 100%);
+}
+
+.logo-blend {
+  mix-blend-mode: multiply;
+}
+
+.product-card {
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 30px -10px rgba(161, 98, 7, 0.18);
+}
