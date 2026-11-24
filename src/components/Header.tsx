@@ -102,23 +102,14 @@ export default function Header({
     <>
       {/* Top Notice Bar */}
       <div className="bg-kunyit-900 text-kunyit-100 text-xs py-1.5 px-4">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
-          <div className="flex items-center gap-2">
-            <span className="inline-flex items-center justify-center bg-kunyit-500 text-kunyit-950 px-2 py-0.5 rounded font-bold text-[10px] uppercase tracking-wider">
-              Promo Terbatas
-            </span>
-            <span className="hidden sm:inline">
-              Gratis Ongkir Min. Belanja Rp 50.000 ke Seluruh Pulau Jawa! 🚚
-            </span>
-            <span className="sm:hidden">Gratis Ongkir Min. Rp 50rb! 🚚</span>
+        <div className="max-w-7xl mx-auto flex justify-between items-center gap-2 text-[11px] text-kunyit-200">
+          <div className="flex items-center gap-1.5">
+            <ShieldCheck className="w-3.5 h-3.5 text-kunyit-400" />
+            <span>P-IRT Resmi & 100% Halal</span>
           </div>
-          <div className="flex items-center gap-4 text-[11px] text-kunyit-200">
-            <span className="flex items-center gap-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-kunyit-400" /> P-IRT & 100% Halal
-            </span>
-            <span className="hidden md:flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5 text-kunyit-400" /> Buka: 08.00 - 20.00 WIB
-            </span>
+          <div className="flex items-center gap-1.5">
+            <Clock className="w-3.5 h-3.5 text-kunyit-400" />
+            <span>Buka: 08.00 - 20.00 WIB</span>
           </div>
         </div>
       </div>

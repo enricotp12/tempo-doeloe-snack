@@ -93,29 +93,32 @@ export default function ProductDetailPage() {
               </span>
             </div>
           </Link>
-
-          <Link
-            href="/"
-            className="flex items-center gap-1.5 text-xs font-bold text-stone-600 hover:text-kunyit-800 bg-stone-100 hover:bg-kunyit-100 px-3 py-2 rounded-lg transition"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Kembali ke Katalog</span>
-          </Link>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
-        {/* Breadcrumbs */}
-        <nav className="flex items-center gap-2 text-xs text-stone-500 mb-6">
-          <Link href="/" className="hover:text-kunyit-700 transition">
-            Beranda
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex-1 w-full">
+        {/* Tombol Kembali ke Katalog (di bawah header Tempo Doeloe Snack, tepat di atas card produk) */}
+        <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-stone-700 hover:text-kunyit-900 bg-white hover:bg-kunyit-50 border border-kunyit-300 px-3.5 py-2 rounded-xl shadow-xs transition group"
+          >
+            <ArrowLeft className="w-4 h-4 text-kunyit-700 group-hover:-translate-x-1 transition-transform" />
+            <span>Kembali ke Katalog</span>
           </Link>
-          <span>/</span>
-          <span className="text-kunyit-800 font-semibold">{product.categoryLabel}</span>
-          <span>/</span>
-          <span className="text-stone-800 font-bold truncate max-w-xs">{product.name}</span>
-        </nav>
+
+          {/* Breadcrumbs */}
+          <nav className="flex items-center gap-2 text-xs text-stone-500">
+            <Link href="/" className="hover:text-kunyit-700 transition">
+              Beranda
+            </Link>
+            <span>/</span>
+            <span className="text-kunyit-800 font-semibold">{product.categoryLabel}</span>
+            <span>/</span>
+            <span className="text-stone-800 font-bold truncate max-w-xs">{product.name}</span>
+          </nav>
+        </div>
 
         {/* Product Hero Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 bg-white rounded-3xl p-6 sm:p-8 border border-kunyit-200 shadow-sm">
