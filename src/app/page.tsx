@@ -62,8 +62,9 @@ export default function HomePage() {
     setTimeout(() => {
       const el = document.getElementById("katalog-produk");
       if (el) {
-        const yOffset = -100;
-        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        const headerEl = document.querySelector("header");
+        const headerHeight = headerEl ? headerEl.offsetHeight : 120;
+        const y = el.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12;
         window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
       }
     }, 50);

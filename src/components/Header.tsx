@@ -59,8 +59,9 @@ export default function Header({
     setTimeout(() => {
       const el = document.getElementById("katalog-produk");
       if (el) {
-        const yOffset = -100;
-        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        const headerEl = document.querySelector("header");
+        const headerHeight = headerEl ? headerEl.offsetHeight : 120;
+        const y = el.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12;
         window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
       }
     }, 50);
@@ -89,8 +90,9 @@ export default function Header({
     setTimeout(() => {
       const el = document.getElementById("katalog-produk");
       if (el) {
-        const yOffset = -100;
-        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        const headerEl = document.querySelector("header");
+        const headerHeight = headerEl ? headerEl.offsetHeight : 120;
+        const y = el.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12;
         window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
       }
     }, 50);
@@ -124,37 +126,39 @@ export default function Header({
       {/* Main Header */}
       <header className="sticky top-0 z-40 bg-white/95 border-b border-kunyit-200/80 shadow-sm backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-3.5 flex items-center justify-between gap-3 lg:gap-8">
+          <div className="py-2.5 sm:py-3.5 flex flex-col md:flex-row md:items-center justify-between gap-2.5 sm:gap-3 lg:gap-8">
             
             {/* BRAND LOGO */}
-            <Link href="/" className="flex items-center gap-3 shrink-0 group">
-              <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-kunyit-100 p-1.5 border-2 border-kunyit-400 flex items-center justify-center shadow-inner group-hover:border-kunyit-600 transition-all">
-                <Image
-                  src="/images/logo.png"
-                  alt="Logo Tempo Doeloe"
-                  width={48}
-                  height={48}
-                  className="logo-blend max-h-full max-w-full object-contain"
-                  priority
-                />
-              </div>
-              <div className="flex flex-col">
-                <div className="flex items-baseline gap-1.5">
-                  <span className="font-serif font-bold text-xl md:text-2xl text-kunyit-900 tracking-tight leading-none group-hover:text-kunyit-700 transition">
-                    Tempo Doeloe
-                  </span>
-                  <span className="text-xs md:text-sm font-extrabold uppercase tracking-widest text-kunyit-600 bg-kunyit-100 px-1.5 py-0.5 rounded">
-                    Snack
+            <div className="flex items-center justify-between">
+              <Link href="/" className="flex items-center gap-2.5 sm:gap-3 shrink-0 group">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl bg-kunyit-100 p-1 sm:p-1.5 border-2 border-kunyit-400 flex items-center justify-center shadow-inner group-hover:border-kunyit-600 transition-all">
+                  <Image
+                    src="/images/logo.png"
+                    alt="Logo Tempo Doeloe"
+                    width={48}
+                    height={48}
+                    className="logo-blend max-h-full max-w-full object-contain"
+                    priority
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="font-serif font-bold text-lg sm:text-xl md:text-2xl text-kunyit-900 tracking-tight leading-none group-hover:text-kunyit-700 transition">
+                      Tempo Doeloe
+                    </span>
+                    <span className="text-[10px] sm:text-xs md:text-sm font-extrabold uppercase tracking-widest text-kunyit-600 bg-kunyit-100 px-1.5 py-0.5 rounded">
+                      Snack
+                    </span>
+                  </div>
+                  <span className="text-[10px] sm:text-[11px] md:text-xs text-stone-500 font-medium">
+                    Otentik & Gurih Sejak Dahulu
                   </span>
                 </div>
-                <span className="text-[11px] md:text-xs text-stone-500 font-medium">
-                  Otentik & Gurih Sejak Dahulu
-                </span>
-              </div>
-            </Link>
+              </Link>
+            </div>
 
-            {/* SEARCH BAR (Center & Right) with Realtime Search & Suggestions */}
-            <div ref={searchContainerRef} className="flex flex-1 max-w-md relative ml-auto">
+            {/* SEARCH BAR (Full Width on Mobile, Auto on Desktop) with Realtime Search & Suggestions */}
+            <div ref={searchContainerRef} className="w-full md:max-w-md relative md:ml-auto">
               <form onSubmit={handleSearchSubmit} className="w-full relative">
                 <input
                   type="text"
@@ -162,9 +166,9 @@ export default function Header({
                   onChange={handleInputChange}
                   onFocus={() => setIsSearchFocused(true)}
                   placeholder="Cari camilan: Singkong, sambal, sirup..."
-                  className="w-full pl-10 pr-24 py-2.5 text-xs sm:text-sm rounded-full bg-stone-50 border border-kunyit-300 focus:bg-white focus:outline-none focus:ring-2 focus:ring-kunyit-500 focus:border-kunyit-500 transition-all placeholder:text-stone-400"
+                  className="w-full pl-9 pr-20 sm:pl-10 sm:pr-24 py-2 sm:py-2.5 text-xs sm:text-sm rounded-full bg-stone-50 border border-kunyit-300 focus:bg-white focus:outline-none focus:ring-2 focus:ring-kunyit-500 focus:border-kunyit-500 transition-all placeholder:text-stone-400"
                 />
-                <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none">
+                <div className="absolute left-3 sm:left-3.5 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none">
                   <Search className="w-4 h-4" />
                 </div>
 
@@ -173,7 +177,7 @@ export default function Header({
                   <button
                     type="button"
                     onClick={handleClearSearch}
-                    className="absolute right-16 top-1/2 -translate-y-1/2 p-1 text-stone-400 hover:text-stone-700 rounded-full transition"
+                    className="absolute right-14 sm:right-16 top-1/2 -translate-y-1/2 p-1 text-stone-400 hover:text-stone-700 rounded-full transition"
                     title="Hapus pencarian"
                   >
                     <X className="w-3.5 h-3.5" />
@@ -182,7 +186,7 @@ export default function Header({
 
                 <button
                   type="submit"
-                  className="absolute right-1.5 top-1/2 -translate-y-1/2 px-4 py-1.5 bg-kunyit-500 hover:bg-kunyit-600 text-kunyit-950 font-bold text-xs rounded-full transition shadow-sm"
+                  className="absolute right-1 sm:right-1.5 top-1/2 -translate-y-1/2 px-3.5 sm:px-4 py-1.5 bg-kunyit-500 hover:bg-kunyit-600 text-kunyit-950 font-bold text-xs rounded-full transition shadow-sm"
                 >
                   Cari
                 </button>
