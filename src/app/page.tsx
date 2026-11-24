@@ -2,7 +2,6 @@
 
 import React, { useState, useMemo } from "react";
 import Header from "@/components/Header";
-import PromoBanner from "@/components/PromoBanner";
 import ProductCard from "@/components/ProductCard";
 import QuickViewModal from "@/components/QuickViewModal";
 import { PRODUCTS, Product } from "@/data/products";
@@ -89,11 +88,8 @@ export default function HomePage() {
         }}
       />
 
-      {/* 2. Banner Promo Slider right under Header */}
-      <PromoBanner onClaimCoupon={handleClaimCoupon} />
-
-      {/* 3. Component Card Section */}
-      <main id="katalog-produk" className="scroll-mt-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 flex-1 w-full">
+      {/* 2. Component Card Section (Langsung Katalog Produk) */}
+      <main id="katalog-produk" className="scroll-mt-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 pb-16 flex-1 w-full">
         {/* Section Title & Filter Controls */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 pt-2">
           <div>
