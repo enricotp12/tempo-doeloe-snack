@@ -58,8 +58,6 @@ export const PRODUCTS: Product[] = [
     image: "/images/sambal-bajak-1.jpg",
     images: [
       "/images/sambal-bajak-1.jpg",
-      "/images/sambal-bajak-2.jpg",
-      "/images/sambal-bajak-3.jpg",
     ],
     badge: "Resep 1986",
     pirt: "P-IRT No: 2091871041336-30",
@@ -105,7 +103,6 @@ export const PRODUCTS: Product[] = [
     images: [
       "/images/sirup-jeruk-nipis-1.jpg",
       "/images/sirup-jeruk-nipis-2.jpg",
-      "/images/sirup-jeruk-nipis-3.jpg",
     ],
     badge: "Kaya Vitamin C",
     discountBadge: "Diskon 17%",
@@ -175,8 +172,6 @@ export const PRODUCTS: Product[] = [
     image: "/images/gula-aren-cair-1.jpg",
     images: [
       "/images/gula-aren-cair-1.jpg",
-      "/images/gula-aren-cair-2.jpg",
-      "/images/gula-aren-cair-3.jpg",
     ],
     badge: "100% Nira Murni",
     discountBadge: "Diskon 16%",
