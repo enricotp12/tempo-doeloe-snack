@@ -10,6 +10,7 @@ export interface Product {
   rating: number;
   soldCount: string;
   image: string;
+  images?: string[];
   badge?: string;
   discountBadge?: string;
   pirt: string;
@@ -30,7 +31,12 @@ export const PRODUCTS: Product[] = [
     stock: 100,
     rating: 4.9,
     soldCount: "1.2rb+",
-    image: "/images/singkong-balado.jpg",
+    image: "/images/singkong-balado-1.jpg",
+    images: [
+      "/images/singkong-balado-1.jpg",
+      "/images/singkong-balado-2.jpg",
+      "/images/singkong-balado-3.jpg",
+    ],
     badge: "⭐ Terlaris",
     discountBadge: "Diskon 12%",
     pirt: "P-IRT No: 2111871011336-30",
@@ -49,7 +55,12 @@ export const PRODUCTS: Product[] = [
     stock: 100,
     rating: 4.8,
     soldCount: "840+",
-    image: "/images/sambal-bajak.jpg",
+    image: "/images/sambal-bajak-1.jpg",
+    images: [
+      "/images/sambal-bajak-1.jpg",
+      "/images/sambal-bajak-2.jpg",
+      "/images/sambal-bajak-3.jpg",
+    ],
     badge: "Resep 1986",
     pirt: "P-IRT No: 2091871041336-30",
     description: "Sambal bajak legendaris sejak tahun 1986 khas Bandar Lampung. Memiliki perpaduan rasa pedas mantap, gurih terasi matang, dan sedikit manis gula aren asli.",
@@ -104,7 +115,12 @@ export const PRODUCTS: Product[] = [
     stock: 100,
     rating: 4.8,
     soldCount: "970+",
-    image: "/images/stick-bawang.jpg",
+    image: "/images/stick-bawang-1.jpg",
+    images: [
+      "/images/stick-bawang-1.jpg",
+      "/images/stick-bawang-2.jpg",
+      "/images/stick-bawang-3.jpg",
+    ],
     badge: "Renyah Gurih",
     pirt: "P-IRT No: 2051871051336-31",
     description: "Stick kue bawang homemade renyah dengan aroma bawang merah dan seledri asli yang menggoda selera. Tekstur empuk, gurih, dan tidak berminyak.",

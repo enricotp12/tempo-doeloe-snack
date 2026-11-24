@@ -29,6 +29,12 @@ export default function ProductDetailPage() {
 
   const [quantity, setQuantity] = useState(1);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const galleryImages = product?.images && product.images.length > 0
+    ? product.images
+    : product ? [product.image] : [];
+  const activeImage = selectedImage || (product ? product.image : "");
 
   const showToast = (msg: string) => {
     setToastMessage(msg);
@@ -123,15 +129,17 @@ export default function ProductDetailPage() {
         {/* Product Hero Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 bg-white rounded-3xl p-6 sm:p-8 border border-kunyit-200 shadow-sm">
           
-          {/* Left: Product Image */}
+          {/* Left: Product Image & Gallery */}
           <div className="md:col-span-5 flex flex-col gap-3">
+            {/* Main Active Image Display */}
             <div className="relative rounded-2xl overflow-hidden aspect-square border-2 border-kunyit-300 bg-stone-50 shadow-inner group">
               <Image
-                src={product.image}
+                src={activeImage}
                 alt={product.name}
                 fill
                 priority
-                className="object-cover group-hover:scale-105 transition duration-500"
+                className="object-cover group-hover:scale-105 transition duration-300"
+                key={activeImage}
               />
               {product.discountBadge && (
                 <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-extrabold px-2.5 py-1 rounded-md shadow-xs">
@@ -139,6 +147,32 @@ export default function ProductDetailPage() {
                 </div>
               )}
             </div>
+
+            {/* Gallery Thumbnails (Clickable) */}
+            {galleryImages.length > 1 && (
+              <div className="flex items-center gap-2.5 pt-0.5">
+                {galleryImages.map((img, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => setSelectedImage(img)}
+                    className={`relative w-20 h-20 sm:w-22 sm:h-22 rounded-xl overflow-hidden border-2 transition-all duration-200 cursor-pointer ${
+                      activeImage === img
+                        ? "border-kunyit-600 ring-2 ring-kunyit-400 shadow-md scale-105"
+                        : "border-stone-200 hover:border-kunyit-400 opacity-70 hover:opacity-100"
+                    }`}
+                    title={`Pilih foto ${idx + 1}`}
+                  >
+                    <Image
+                      src={img}
+                      alt={`${product.name} - Foto ${idx + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
 
             {/* Quality badges underneath */}
             <div className="grid grid-cols-3 gap-2 text-center text-[11px] pt-1">
