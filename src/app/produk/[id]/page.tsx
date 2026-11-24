@@ -217,11 +217,6 @@ export default function ProductDetailPage() {
                 </div>
                 <span className="text-stone-300">|</span>
                 <span className="text-stone-600 text-xs font-medium">Terjual {product.soldCount}</span>
-                <span className="text-stone-300">|</span>
-                <span className="text-emerald-700 text-xs font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>
-                  Sisa Stok: {product.stock} pcs
-                </span>
               </div>
 
               {/* Price Box */}

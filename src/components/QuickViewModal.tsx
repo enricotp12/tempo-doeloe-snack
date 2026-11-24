@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Info, X, ArrowRight } from "lucide-react";
@@ -15,7 +15,14 @@ export default function QuickViewModal({
   product,
   onClose,
 }: QuickViewModalProps) {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   if (!product) return null;
+
+  const galleryImages = product.images && product.images.length > 0
+    ? product.images
+    : [product.image];
+  const activeImage = selectedImage || product.image;
 
   const waUrl = `https://wa.me/6289616700568?text=${encodeURIComponent(
     `Pagi, Kak! Salam kenal dari Tempo Doeloe 👋 Lagi cari-cari produk apa nih? Yuk, kasih tahu biar kami bantu pilihkan!`
@@ -41,13 +48,39 @@ export default function QuickViewModal({
 
         {/* Content */}
         <div className="p-6 grid grid-cols-1 sm:grid-cols-2 gap-5">
-          <div className="relative rounded-xl overflow-hidden border border-kunyit-200 bg-stone-50 aspect-square">
-            <Image
-              src={product.image}
-              alt={product.name}
-              fill
-              className="object-cover"
-            />
+          <div>
+            <div className="relative rounded-xl overflow-hidden border border-kunyit-200 bg-stone-50 aspect-square">
+              <Image
+                src={activeImage}
+                alt={product.name}
+                fill
+                className="object-cover"
+                key={activeImage}
+              />
+            </div>
+            {galleryImages.length > 1 && (
+              <div className="flex items-center gap-2 mt-2.5">
+                {galleryImages.map((img, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => setSelectedImage(img)}
+                    className={`relative w-14 h-14 rounded-lg overflow-hidden border-2 transition cursor-pointer ${
+                      activeImage === img
+                        ? "border-kunyit-600 ring-2 ring-kunyit-400 shadow-xs"
+                        : "border-stone-200 hover:border-kunyit-300 opacity-70 hover:opacity-100"
+                    }`}
+                  >
+                    <Image
+                      src={img}
+                      alt={`Foto ${i + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="flex flex-col justify-between space-y-3">
@@ -55,10 +88,6 @@ export default function QuickViewModal({
               <div className="flex items-center gap-2">
                 <span className="text-[10px] bg-kunyit-100 text-kunyit-900 px-2 py-0.5 rounded font-mono font-bold">
                   {product.pirt}
-                </span>
-                <span className="text-[10px] bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded font-bold flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>
-                  Stok: {product.stock} pcs
                 </span>
               </div>
               <h3 className="font-serif font-bold text-lg text-stone-900 mt-1.5 leading-snug">

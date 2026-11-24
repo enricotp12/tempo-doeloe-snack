@@ -225,7 +225,6 @@ export default function Header({
                                 {prod.categoryLabel}
                               </span>
                               <span>{prod.netto}</span>
-                              <span className="text-emerald-700 font-semibold">• Stok: {prod.stock}</span>
                             </div>
                           </div>
                           <div className="text-right shrink-0">
