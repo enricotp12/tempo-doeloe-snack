@@ -58,10 +58,10 @@ export default function EmailContactModal({
         <div className="bg-kunyit-50 p-4 border-b border-kunyit-200 text-xs flex items-center justify-between">
           <div className="flex items-center gap-2 text-kunyit-900 font-medium">
             <AtSign className="w-4 h-4 text-kunyit-600" />
-            <span>halo@tempodoeloesnack.id</span>
+            <span>tempo.doeloe.lampung@gmail.com</span>
           </div>
           <a
-            href="mailto:halo@tempodoeloesnack.id"
+            href="mailto:tempo.doeloe.lampung@gmail.com"
             className="text-kunyit-800 font-bold underline hover:text-kunyit-950"
           >
             Buka App Email

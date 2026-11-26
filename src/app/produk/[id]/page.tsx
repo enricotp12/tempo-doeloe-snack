@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
+import { notFound, useParams, useRouter } from "next/navigation";
 import {
   ArrowLeft,
   Star,
@@ -42,22 +42,7 @@ export default function ProductDetailPage() {
   };
 
   if (!product) {
-    return (
-      <div className="min-h-screen bg-[#FAF8F5] flex flex-col items-center justify-center p-6 text-center">
-        <h1 className="font-serif text-3xl font-bold text-stone-800 mb-2">
-          Produk Tidak Ditemukan
-        </h1>
-        <p className="text-stone-500 mb-6 text-sm">
-          Maaf, produk yang Anda cari belum tersedia atau URL tidak sesuai.
-        </p>
-        <Link
-          href="/"
-          className="px-6 py-2.5 bg-kunyit-500 text-kunyit-950 font-bold rounded-xl shadow hover:bg-kunyit-600 transition"
-        >
-          Kembali ke Beranda
-        </Link>
-      </div>
-    );
+    notFound();
   }
 
   const totalPrice = product.price * quantity;
@@ -392,7 +377,7 @@ export default function ProductDetailPage() {
 
       {/* Floating Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-5 right-5 z-50 bg-stone-900 text-white px-4 py-3 rounded-xl shadow-xl border-l-4 border-kunyit-500 text-xs flex items-center gap-3 animate-in fade-in slide-in-from-bottom-2 duration-200">
+        <div className="fixed bottom-24 right-5 z-50 bg-stone-900 text-white px-4 py-3 rounded-xl shadow-xl border-l-4 border-kunyit-500 text-xs flex items-center gap-3 animate-in fade-in slide-in-from-bottom-2 duration-200">
           <CheckCircle2 className="w-5 h-5 text-kunyit-400 shrink-0" />
           <div className="font-medium">{toastMessage}</div>
         </div>
