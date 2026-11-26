@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Search, Sparkles, MapPin, ShieldCheck, Clock, X } from "lucide-react";
+import { Search, Tag, MapPin, ShieldCheck, Clock, X } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
 
 interface HeaderProps {
@@ -259,7 +259,7 @@ export default function Header({
           <div className="py-2 border-t border-stone-100 flex items-center justify-between text-xs overflow-x-auto no-scrollbar gap-4 text-stone-600">
             <div className="flex items-center gap-2 sm:gap-4 shrink-0">
               <span className="font-bold text-kunyit-800 flex items-center gap-1">
-                <Sparkles className="w-3.5 h-3.5 text-kunyit-600" /> Kategori:
+                <Tag className="w-3.5 h-3.5 text-kunyit-600" /> Kategori:
               </span>
               {categories.map((c) => (
                 <button

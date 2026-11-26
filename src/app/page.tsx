@@ -115,7 +115,7 @@ export default function HomePage() {
                   </button>
                 </span>
               ) : (
-                "Klik pada produk untuk melihat halaman detail lengkap atau langsung pesan via WhatsApp."
+                "Klik pada produk untuk melihat halaman detail lengkap dan pesan via WhatsApp."
               )}
             </p>
           </div>
@@ -182,7 +182,7 @@ export default function HomePage() {
       />
 
       {/* Floating Toast Notifications */}
-      <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm pointer-events-none">
+      <div className="fixed bottom-24 right-5 z-50 flex flex-col gap-2 max-w-sm pointer-events-none">
         {toasts.map((toast) => (
           <div
             key={toast.id}

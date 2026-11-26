@@ -15,12 +15,6 @@ export default function ProductCard({
   product,
   onQuickView,
 }: ProductCardProps) {
-  // Generate WhatsApp order URL
-  const waMessage = encodeURIComponent(
-    `Pagi, Kak! Salam kenal dari Tempo Doeloe 👋 Lagi cari-cari produk apa nih? Yuk, kasih tahu biar kami bantu pilihkan!`
-  );
-  const waUrl = `https://wa.me/6289616700568?text=${waMessage}`;
-
   return (
     <div className="product-card bg-white rounded-2xl border border-kunyit-200 hover:border-kunyit-400 overflow-hidden flex flex-col justify-between group shadow-xs">
       <div>
@@ -98,25 +92,8 @@ export default function ProductCard({
         </div>
       </div>
 
-      {/* Action Buttons: WhatsApp Button + Lihat Detail (Keranjang removed) */}
-      <div className="p-4 pt-0 space-y-2">
-        {/* WhatsApp Direct Order Button */}
-        <a
-          href={waUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl transition flex items-center justify-center gap-2 shadow-xs group/wa"
-        >
-          <Image
-            src="/images/whatsapp.png"
-            alt="WhatsApp"
-            width={18}
-            height={18}
-            className="w-4 h-4 object-contain group-hover/wa:scale-110 transition-transform shrink-0"
-          />
-          <span>Pesan via WhatsApp</span>
-        </a>
-
+      {/* Action Button: Lihat Detail (ordering via WhatsApp happens on the detail page) */}
+      <div className="p-4 pt-0">
         {/* Click to Next Page Detail */}
         <Link
           href={`/produk/${product.id}`}
